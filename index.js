@@ -1,7 +1,3 @@
-// const { parsers } = require("prettier/parser-yaml");
-const {
-  printTextStatement,
-} = require("prettier-plugin-twig-melody/src/print/TextStatement");
 const {
   doc: {
     builders: { concat, hardline },
@@ -9,21 +5,31 @@ const {
   format,
 } = require("prettier");
 
+const {
+  printTextStatement,
+} = require("prettier-plugin-twig-melody/src/print/TextStatement");
+
 // Twig doesn't support frontmatter, so use only deal with it in the printer!
 
 function printTextStatementWithFrontMatter(node, path, print, options) {
+  /**
+   * @type {StringLiteral}
+   * See https://github.com/trivago/melody/blob/a9a09f85c06d16d39dd621bcb4ffd07d9d5e307d/packages/melody-types/src/index.js#L130-L155
+   */
   const literal = node.value;
 
   // Credit to Prettier for the regex!
   // https://github.com/prettier/prettier/blob/a2ca7e95d30851581987507c16a7ead9c4e3706f/src/utils/front-matter.js#L19
   const frontMatterRegex = /^(---)([^\n]*)\n(?:([\s\S]*?)\n)?(\1)([^\n\S])*(\n|$)/;
-  /** @type {string[]|null} */
   let matches;
 
   if (
     node.loc.start.index !== 0 ||
     (matches = literal.value.match(frontMatterRegex)) === null
   ) {
+    // Don't use the Prettier idiom path.call(print, "value")
+    // so you can fallback to the default printing of the node itself.
+    // (Perhaps there's already an idiom for this as well?)
     return printTextStatement(node, path, print, options);
   }
 
@@ -45,9 +51,6 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
     "---",
     hardline,
     // Print the rest of the node.
-    // Don't use the Prettier idiom path.call(print, "value")
-    // so you can fallback to the default printing of the node itself.
-    // (Perhaps there's already an idiom for this as well?)
     printTextStatement(node, path, print, options),
   ]);
 }
