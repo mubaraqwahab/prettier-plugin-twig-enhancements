@@ -33,11 +33,10 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
     return printTextStatement(node, path, print, options);
   }
 
-  // The current node's value, excluding the frontmatter
+  // Remove the frontmatter from the current node's value
   // (Note that the first item in `matches` is the entire matching string)
   const rest = literal.value.slice(matches[0].length);
-
-  literal.value = rest;
+  literal.value = rest.replace(/^\n+/, "\n");
 
   // The third capture group contains the YAML content.
   let rawYAML = matches[3];
@@ -50,6 +49,7 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
     prettyYAML,
     "---",
     hardline,
+    rest.startsWith("\n") ? "" : hardline,
     // Print the rest of the node.
     printTextStatement(node, path, print, options),
   ]);
