@@ -1,5 +1,6 @@
 const { Node, type, visitor } = require("melody-types");
-const { parsers } = require("prettier/parser-yaml");
+// const { parsers } = require("prettier/parser-yaml");
+const { Parser: MelodyParser } = require("melody-parser");
 const {
   doc: {
     builders: { concat, hardline },
@@ -19,9 +20,20 @@ class FrontMatter extends Node {
 type(FrontMatter, "FrontMatter");
 visitor(FrontMatter, "value");
 
-// Discard the delimiters.
-// If possible, parse YAML with its own parser
-function parseFrontMatter(parser, token) {}
+const FrontMatterParser = {
+  name: "frontmatter",
+  /**
+   *
+   * @param {MelodyParser} parser
+   * @param {*} token
+   */
+  parse: function parseFrontMatter(parser, token) {
+    console.log(parser.tokens);
+    // Discard the delimiters.
+    // If possible, parse YAML with its own parser
+    console.log(JSON.stringify(token), "\n");
+  },
+};
 
 /*
  * YAML frontmatter must follow this format:
@@ -55,8 +67,7 @@ function printFrontMatter(node, path, print, options) {
 module.exports = {
   melodyExtensions: [
     {
-      name: "frontmatter",
-      parse: parseFrontMatter,
+      tags: [FrontMatterParser],
     },
   ],
   printers: {
