@@ -2,7 +2,7 @@
 layout:      layout
 title: Home
 ---
-<!-- Hey there! -->
+        <!-- Hey there! -->
 
 <h1>Hello, world!</h1>
 <p>You've successfully loaded up the Bootstrap + Eleventy starter project!</p>
@@ -34,16 +34,20 @@ title: Home
 
 <!-- Optimize and inline JavaScript: https://www.11ty.dev/docs/quicktips/inline-js/ -->
 {% block scripts %}
-  {% set js %}
-    {% include "index.js" %}
-  {% endset %}
-  {% if site.environment == "production" %}
-    <script>
-      {{ js | transpile | jsmin | safe }}
-    </script>
-  {% else %}
-    <script>
-      {{ js | safe }}
-    </script>
-  {% endif %}
+
+
+
+{% set js %}
+              {% include "index.js" %} {% endset %}
+{% if site.environment == "production" %}
+<script>
+
+{{ js | transpile | jsmin | safe }}
+
+</script>
+{% else %}
+<script>{{ js | safe }}</script>
+{% endif %}
+
+
 {% endblock %}
