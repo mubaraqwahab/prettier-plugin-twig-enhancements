@@ -1,65 +1,60 @@
 // const { parsers } = require("prettier/parser-yaml");
 const {
+  printTextStatement,
+} = require("prettier-plugin-twig-melody/src/print/TextStatement");
+const {
   doc: {
     builders: { concat, hardline },
   },
+  format,
 } = require("prettier");
 
 // Twig doesn't support frontmatter, so use only deal with it in the printer!
 
-/*
- * I didn't find any specification (or the like) for YAML frontmatter
- * so I'm making the following assumptions based on what I observed
- * Eleventy (https://www.11ty.dev/) and Nunjucks (https://mozilla.github.io/nunjucks/)
- * consider as "valid" YAML frontmatter.
- *
- * "Valid" YAML frontmatter should look something like:
- *     ---
- *     hello: world
- *     ---
- *
- * The restrictions are as follows:
- * - It must begin a file (i.e. nothing, not even whitespace, should come before it).
- * - The first line must contain only the delimiter (---) and a newline.
- *   (Optionally, there may be whitespace between the two).
- * - The same restriction that on the first line applies to the last,
- *   except that the newline at the end is not mandatory.
- * - Between the first and last line must be valid YAML syntax.
- * - If the YAML content of the frontmatter is empty,
- *   then the closing delimeter may immediately follow the opening one
- *   provided there is no non-newline whitesphace after the opening one.
- *   In other words, this is "valid" frontmatter:
- *     ------
- *   and so is:
- *     ---
- *     ---
- *   but this is not:
- *     --- ---
- */
+function printTextStatementWithFrontMatter(node, path, print, options) {
+  const literal = node.value;
 
-function printFrontMatter(node, path, print, options) {
-  // Tell prettier to print using YAML printer
+  // Credit to Prettier for the regex!
+  // https://github.com/prettier/prettier/blob/a2ca7e95d30851581987507c16a7ead9c4e3706f/src/utils/front-matter.js#L19
+  const frontMatterRegex = /^(---)([^\n]*)\n(?:([\s\S]*?)\n)?(\1)([^\n\S])*(\n|$)/;
+  /** @type {string[]|null} */
+  let matches;
 
-  let yamlDoc;
+  if (
+    node.loc.start.index !== 0 ||
+    (matches = literal.value.match(frontMatterRegex)) === null
+  ) {
+    return printTextStatement(node, path, print, options);
+  }
+
+  // The current node's value, excluding the frontmatter
+  // (Note that the first item in `matches` is the entire matching string)
+  const rest = literal.value.slice(matches[0].length);
+
+  literal.value = rest;
+
+  // The third capture group contains the YAML content.
+  let rawYAML = matches[3];
+  // There's probably a better way to call `format` from within a printer
+  let prettyYAML = rawYAML ? format(rawYAML, { parser: "yaml" }) : "";
 
   return concat([
     "---",
     hardline,
-    yamlDoc,
-    hardline,
+    prettyYAML,
     "---",
     hardline,
-    hardline,
+    // Print the rest of the node.
+    // Don't use the Prettier idiom path.call(print, "value")
+    // so you can fallback to the default printing of the node itself.
+    // (Perhaps there's already an idiom for this as well?)
+    printTextStatement(node, path, print, options),
   ]);
 }
 
 module.exports = {
-  melodyExtensions: [
-    {
-      tags: [FrontMatterParser],
-    },
-  ],
+  melodyExtensions: [],
   printers: {
-    FrontMatter: printFrontMatter,
+    PrintTextStatement: printTextStatementWithFrontMatter,
   },
 };
