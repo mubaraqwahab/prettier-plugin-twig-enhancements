@@ -1,0 +1,13 @@
+const fs = require("fs");
+const path = require("path");
+const prettier = require("prettier");
+
+const code = fs.readFileSync("test/index.njk").toString();
+
+const formatted = prettier.format(code, {
+  parser: "melody",
+  plugins: ["."],
+});
+
+console.clear();
+console.log(formatted);

@@ -1,0 +1,29 @@
+{
+  "name": "prettier-plugin-twig-frontmatter",
+  "version": "1.0.0",
+  "description": "Frontmatter plugin for prettier-plugin-twig-melody",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "melody-parser": "^1.7.5",
+    "prettier": "2.1.2",
+    "prettier-plugin-twig-melody": "^0.4.6"
+  },
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter/issues"
+  },
+  "homepage": "https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter#readme"
+}
