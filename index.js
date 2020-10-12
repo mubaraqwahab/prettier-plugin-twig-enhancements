@@ -1,9 +1,27 @@
+const { Node, type, visitor } = require("melody-types");
+const { parsers } = require("prettier/parser-yaml");
 const {
   doc: {
     builders: { concat, hardline },
   },
 } = require("prettier");
-const { parseFrontMatter } = require("./parse");
+
+class FrontMatter extends Node {
+  /**
+   * @param {string} yaml
+   */
+  constructor(yaml) {
+    super();
+    this.value = yaml;
+  }
+}
+
+type(FrontMatter, "FrontMatter");
+visitor(FrontMatter, "value");
+
+// Discard the delimiters.
+// If possible, parse YAML with its own parser
+function parseFrontMatter(parser, token) {}
 
 /*
  * YAML frontmatter must follow this format:
