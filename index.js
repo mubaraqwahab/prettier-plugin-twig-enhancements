@@ -9,13 +9,7 @@ const {
   printTextStatement,
 } = require("prettier-plugin-twig-melody/src/print/TextStatement");
 
-// Twig doesn't support frontmatter, so use only deal with it in the printer!
-
 function printTextStatementWithFrontMatter(node, path, print, options) {
-  /**
-   * @type {StringLiteral}
-   * See https://github.com/trivago/melody/blob/a9a09f85c06d16d39dd621bcb4ffd07d9d5e307d/packages/melody-types/src/index.js#L130-L155
-   */
   const literal = node.value;
 
   // Credit to Prettier for the regex!
@@ -34,13 +28,11 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
   }
 
   // Remove the frontmatter from the current node's value
-  // (Note that the first item in `matches` is the entire matching string)
   const rest = literal.value.slice(matches[0].length);
   literal.value = rest.replace(/^\n+/, "\n");
 
   // The third capture group contains the YAML content.
   let rawYAML = matches[3];
-  // There's probably a better way to call `format` from within a printer
   let prettyYAML = rawYAML ? format(rawYAML, { parser: "yaml" }) : "";
 
   return concat([
