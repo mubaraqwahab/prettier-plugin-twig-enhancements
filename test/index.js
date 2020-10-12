@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 const prettier = require("prettier");
 
 const code = fs.readFileSync("test/index.njk").toString();
