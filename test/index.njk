@@ -4,7 +4,16 @@ title: Home
 ---
         <!-- Hey there! -->
 
-<h1>Hello, world!</h1>
+        <title>
+          {{ title }} | {{ site.title }}
+        </title>
+
+        {% block styles %}
+    {% endblock %}
+
+    {% block fonts %}{% endblock %}
+
+        <h1>Hello, world!</h1>
 <p>You've successfully loaded up the Bootstrap + Eleventy starter project!</p>
 <p>If this button looks blue, you've done it.</p>
 
