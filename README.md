@@ -6,7 +6,7 @@ Subtle enhancements for [prettier-plugin-twig-melody](https://github.com/trivago
 
 * Support for YAML frontmatter.
 * Format HTML in a manner more similar to Prettier's default HTML formatter.
-* Empty block statements are printed on one line.
+* Empty `{% block %}` statements are printed on one line.
 
 TODO: Example(s) for each point.
 

@@ -4,7 +4,6 @@
   "description": "Subtle enhancements for prettier-plugin-twig-melody",
   "main": "src/index.js",
   "directories": {
-    "src": "src",
     "test": "test"
   },
   "dependencies": {},
