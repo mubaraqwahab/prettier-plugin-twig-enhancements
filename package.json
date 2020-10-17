@@ -2,8 +2,9 @@
   "name": "prettier-plugin-twig-frontmatter",
   "version": "1.0.0",
   "description": "Frontmatter plugin for prettier-plugin-twig-melody",
-  "main": "index.js",
+  "main": "src/index.js",
   "directories": {
+    "src": "src",
     "test": "test"
   },
   "dependencies": {},
