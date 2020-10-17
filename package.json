@@ -2,7 +2,7 @@
   "name": "prettier-plugin-twig-enhancements",
   "version": "1.0.0",
   "description": "Subtle enhancements for prettier-plugin-twig-melody",
-  "main": "src/index.js",
+  "main": "src",
   "directories": {
     "test": "test"
   },
@@ -12,6 +12,9 @@
     "melody-types": "^1.7.5",
     "prettier": "2.1.2",
     "prettier-plugin-twig-melody": "^0.4.6"
+  },
+  "peerDependencies": {
+    "prettier-plugin-twig-melody": "0.4.6"
   },
   "scripts": {
     "test": "node test"
