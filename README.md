@@ -1,6 +1,6 @@
-# prettier-plugin-twig-enhancement
+# prettier-plugin-twig-enhancements
 
-A plugin that enhances prettier-plugin-twig-melody and makes it more Nunjucks-compatible.
+Subtle enhancements for [prettier-plugin-twig-melody](https://github.com/trivago/prettier-plugin-twig-melody).
 
 ## Features
 

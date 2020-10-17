@@ -1,7 +1,7 @@
 {
-  "name": "prettier-plugin-twig-frontmatter",
+  "name": "prettier-plugin-twig-enhancements",
   "version": "1.0.0",
-  "description": "Frontmatter plugin for prettier-plugin-twig-melody",
+  "description": "Subtle enhancements for prettier-plugin-twig-melody",
   "main": "src/index.js",
   "directories": {
     "src": "src",
