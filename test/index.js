@@ -1,3 +1,5 @@
+// Ideally, you should set up some test suites with Jest or something.
+
 const fs = require("fs");
 const prettier = require("prettier");
 
