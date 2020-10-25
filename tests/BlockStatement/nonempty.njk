@@ -1,0 +1,21 @@
+{% block fonts %} a {% endblock %}
+
+{% block scripts %}
+
+
+
+{% set js %}
+              {% include "index.js" %} {% endset %}
+
+{% if site.environment == "production" %}
+<script>
+
+{{ js | transpile | jsmin | safe }}
+
+</script>
+{% else %}
+<script>{{ js | safe }}</script>
+{% endif %}
+
+
+{% endblock %}
