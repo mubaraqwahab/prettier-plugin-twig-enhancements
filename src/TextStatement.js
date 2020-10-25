@@ -66,16 +66,16 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
   let rawYAML = matches[3];
   let prettyYAML = rawYAML ? prettier.format(rawYAML, { parser: "yaml" }) : "";
 
-  return concat([
-    "---",
-    hardline,
-    prettyYAML,
-    "---",
-    hardline,
-    rest.startsWith("\n") ? "" : hardline,
-    // Print the rest of the node.
-    p(node, path, print, options),
-  ]);
+  // Format the rest of the node if it exists.
+  const formattedRest = rest
+    ? [
+        hardline,
+        rest.startsWith("\n") ? "" : hardline,
+        p(node, path, print, options),
+      ]
+    : [];
+
+  return concat(["---", hardline, prettyYAML, "---", ...formattedRest]);
 }
 
 module.exports = {

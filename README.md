@@ -27,13 +27,19 @@ items:
 Output without this plugin:
 
 ```njk
-
+--- title: Home map: {Hello: World} items: - item1 - item2 ---
 ```
 
 Output with this plugin:
 
 ```njk
-
+---
+title: Home
+map: { Hello: World }
+items:
+  - item1
+  - item2
+---
 ```
 
 ### Formatting HTML more like Prettier
@@ -59,13 +65,67 @@ Input:
 Output without this plugin:
 
 ```njk
+<title>
+  {{ title }} | {{ site.title }}
+</title>
 
+<h1>
+  Hello, world!
+</h1>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit sequi modi
+  voluptate quidem enim! Earum voluptatem accusantium nulla cupiditate
+  exercitationem qui? Facilis explicabo veritatis iusto dignissimos laboriosam
+  quidem ipsa sed!
+</p>
+
+<input type="email"
+  name="email"
+  id="email"
+  class="form-control form-control--large form-control--email" />
+
+<div class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  Success!
+</div>
 ```
 
 Output with this plugin:
 
 ```njk
+<title>{{ title }} | {{ site.title }}</title>
 
+<h1>Hello, world!</h1>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit sequi modi
+  voluptate quidem enim! Earum voluptatem accusantium nulla cupiditate
+  exercitationem qui? Facilis explicabo veritatis iusto dignissimos laboriosam
+  quidem ipsa sed!
+</p>
+
+<input
+  type="email"
+  name="email"
+  id="email"
+  class="form-control form-control--large form-control--email"
+/>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  Success!
+</div>
 ```
 
 ### Printing empty `{% block %}` statements on one line
@@ -77,19 +137,26 @@ Input:
 
         {% endblock %}
 
-    {% block slides %}{%endblock%}
+    {% block scripts %}{%endblock%}
 ```
 
 Output without this plugin:
 
 ```njk
+{% block styles %}
 
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
 ```
 
 Output with this plugin:
 
 ```njk
+{% block styles %}{% endblock %}
 
+{% block scripts %}{% endblock %}
 ```
 
 ## Usage
