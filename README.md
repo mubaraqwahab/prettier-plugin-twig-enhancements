@@ -171,7 +171,6 @@ Add it to your Prettier configuration file (e.g. `.prettierrc`):
 
 ```json
 {
-  "plugins": ["."],
   "twigMelodyPlugins": ["."]
 }
 ```
@@ -185,9 +184,7 @@ Example usage on Nunjucks templates (`*.njk`):
       "files": "*.njk",
       "options": {
         "parser": "melody",
-        "plugins": [""],
-        "twigMelodyPlugins": [""],
-        "twigFollowOfficialCodingStandards": false,
+        "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"],
       }
     }
   ]
