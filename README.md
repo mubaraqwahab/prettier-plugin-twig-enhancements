@@ -5,10 +5,12 @@
 Nunjucks-friendly enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody) (v0.4.6).
 
 **Notes:**
-* This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
-* Some enhancements of this plugin are somewhat naive and depend on implementation details of the Twig plugin v0.4.6. Thus this plugin may not work with other versions of the Twig plugin.
+
+- This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
+- Some enhancements of this plugin are somewhat naive and depend on implementation details of the Twig plugin v0.4.6. Thus this plugin may not work with other versions of the Twig plugin.
 
 ## Table of Contents
+
 - [Table of Contents](#table-of-contents)
 - [Enhancements](#enhancements)
   - [Support for YAML frontmatter](#support-for-yaml-frontmatter)
@@ -192,9 +194,12 @@ Example usage on Nunjucks templates (`*.njk`):
 {
   "overrides": [
     {
-      "files": "*.njk",
+      "files": "src/**/*.njk",
       "options": {
         "parser": "melody",
+        "twigPrintWidth": 120,
+        "twigSingleQuote": false,
+        "twigFollowOfficialCodingStandards": false,
         "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"]
       }
     }
