@@ -9,6 +9,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "jest": "^26.6.1",
     "melody-parser": "^1.7.5",
     "melody-types": "^1.7.5",
     "prettier": "2.1.2",

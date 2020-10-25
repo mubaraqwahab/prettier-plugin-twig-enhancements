@@ -83,7 +83,8 @@ function raw(string) {
 function mergeDefaultOptions(parserConfig) {
   return Object.assign(
     {
-      plugins: [path.dirname(__dirname)],
+      parser: "melody",
+      twigMelodyPlugins: [path.dirname(__dirname)],
       printWidth: 80,
     },
     parserConfig

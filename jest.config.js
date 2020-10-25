@@ -10,8 +10,8 @@ module.exports = {
   testEnvironment: "node",
   testRegex: "jsfmt\\.spec\\.js$|__tests__/.*\\.js$",
   transform: {},
-  watchPlugins: [
-    "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname",
-  ],
+  // watchPlugins: [
+  //   "jest-watch-typeahead/filename",
+  //   "jest-watch-typeahead/testname",
+  // ],
 };
