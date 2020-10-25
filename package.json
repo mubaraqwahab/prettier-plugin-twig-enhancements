@@ -11,12 +11,15 @@
     "melody-types": "^1.7.5"
   },
   "devDependencies": {
+    "husky": "^4.3.0",
     "jest": "^26.6.1",
+    "lint-staged": "^10.4.2",
     "melody-parser": "^1.7.5",
     "prettier": "2.1.2",
     "prettier-plugin-twig-melody": "^0.4.6"
   },
   "peerDependencies": {
+    "prettier": "^2.1.2",
     "prettier-plugin-twig-melody": "0.4.6"
   },
   "scripts": {
@@ -39,5 +42,13 @@
   "bugs": {
     "url": "https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter/issues"
   },
-  "homepage": "https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter#readme"
+  "homepage": "https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,md}": "prettier --write"
+  }
 }
