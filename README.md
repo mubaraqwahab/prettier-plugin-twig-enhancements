@@ -1,4 +1,6 @@
-# prettier-plugin-twig-enhancements
+# Prettier for Twig Enhancements
+
+![Prettier Banner](https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png)
 
 Subtle enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody) (v0.4.6).
 
