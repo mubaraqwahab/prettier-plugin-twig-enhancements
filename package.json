@@ -1,7 +1,7 @@
 {
   "name": "prettier-plugin-twig-enhancements",
   "version": "0.1.0",
-  "description": "Little Nunjucks-friendly enhancements for prettier-plugin-twig-melody v0.4.6",
+  "description": "Nunjucks-friendly enhancements for prettier-plugin-twig-melody v0.4.6",
   "main": "src",
   "directories": {
     "example": "example",

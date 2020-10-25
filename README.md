@@ -2,7 +2,7 @@
 
 ![Prettier Banner](https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png)
 
-Little Nunjucks-friendly enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody) (v0.4.6).
+Nunjucks-friendly enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody) (v0.4.6).
 
 **Notes:**
 * This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
