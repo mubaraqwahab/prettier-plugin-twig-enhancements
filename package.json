@@ -4,7 +4,8 @@
   "description": "Subtle enhancements for prettier-plugin-twig-melody",
   "main": "src",
   "directories": {
-    "test": "test"
+    "example": "example",
+    "test": "tests"
   },
   "dependencies": {},
   "devDependencies": {
@@ -17,14 +18,21 @@
     "prettier-plugin-twig-melody": "0.4.6"
   },
   "scripts": {
-    "test": "node test"
+    "test": "jest",
+    "example": "node example"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "prettier",
+    "plugin",
+    "prettier-plugin-twig-melody",
+    "nunjucks",
+    "frontmatter"
+  ],
+  "author": "Mubaraq Wahab",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mubaraqwahab/prettier-plugin-twig-frontmatter/issues"
