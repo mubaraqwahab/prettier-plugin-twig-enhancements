@@ -1,3 +1,5 @@
+// Source: prettier-plugin-twig-melody/src/print/Element.js
+
 const prettier = require("prettier");
 const { concat, group, line, softline, indent, join } = prettier.doc.builders;
 const {
@@ -5,7 +7,7 @@ const {
   printChildGroups,
   EXPRESSION_NEEDED,
   STRING_NEEDS_QUOTES,
-} = require("prettier-plugin-twig-melody/src/util");
+} = require("prettier-plugin-twig-melody");
 
 const printOpeningTag = (node, path, print) => {
   const opener = "<" + node.name;
