@@ -7,11 +7,12 @@
     "example": "example",
     "test": "tests"
   },
-  "dependencies": {},
+  "dependencies": {
+    "melody-types": "^1.7.5"
+  },
   "devDependencies": {
     "jest": "^26.6.1",
     "melody-parser": "^1.7.5",
-    "melody-types": "^1.7.5",
     "prettier": "2.1.2",
     "prettier-plugin-twig-melody": "^0.4.6"
   },
