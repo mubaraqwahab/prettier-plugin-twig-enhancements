@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`frontmatter.njk 1`] = `
+---
+layout:      layout
+title: {Hello: World}
+---
+
+<span>Hello, world!</span>
+
+<!-- Should not be formatted as frontmatter -->
+---
+name:               example
+---
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+layout: layout
+title: { Hello: World }
+---
+
+<span>Hello, world!</span>
+
+<!-- Should not be formatted as frontmatter -->
+--- name: example ---
+
+`;

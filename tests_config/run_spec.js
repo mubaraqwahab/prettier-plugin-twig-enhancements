@@ -83,9 +83,11 @@ function raw(string) {
 function mergeDefaultOptions(parserConfig) {
   return Object.assign(
     {
+      printWidth: 80,
       parser: "melody",
       twigMelodyPlugins: [path.dirname(__dirname)],
-      printWidth: 80,
+      // Do {{ a | b }} not {{ a|b }}
+      twigFollowOfficialCodingStandards: false,
     },
     parserConfig
   );

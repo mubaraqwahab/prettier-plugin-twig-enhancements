@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`empty.njk 1`] = `
+{% block styles %}
+
+{% endblock %}
+
+
+{% block slides %}{%endblock%}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{% block styles %}{% endblock %}
+
+{% block slides %}{% endblock %}
+
+`;
+
+exports[`nonempty.njk 1`] = `
+{% block fonts %} a {% endblock %}
+
+{% block scripts %}
+
+
+
+{% set js %}
+              {% include "index.js" %} {% endset %}
+
+{% if site.environment == "production" %}
+<script>
+
+{{ js | transpile | jsmin | safe }}
+
+</script>
+{% else %}
+<script>{{ js | safe }}</script>
+{% endif %}
+
+
+{% endblock %}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{% block fonts %}
+  a
+{% endblock %}
+
+{% block scripts %}
+  {% set js %}
+    {% include 'index.js' %}
+  {% endset %}
+
+  {% if site.environment == 'production' %}
+    <script>{{ js | transpile | jsmin | safe }}</script>
+  {% else %}
+    <script>{{ js | safe }}</script>
+  {% endif %}
+{% endblock %}
+
+`;
