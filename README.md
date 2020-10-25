@@ -171,7 +171,7 @@ Add it to your Prettier configuration file (e.g. `.prettierrc`):
 
 ```json
 {
-  "twigMelodyPlugins": ["."]
+  "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"]
 }
 ```
 
