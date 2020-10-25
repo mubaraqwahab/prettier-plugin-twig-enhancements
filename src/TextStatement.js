@@ -1,44 +1,12 @@
-const prettier = require("prettier");
-const { concat, softline, join, hardline } = prettier.doc.builders;
 const {
-  isWhitespaceOnly,
-  countNewlines,
-  createTextGroups,
-  PRESERVE_LEADING_WHITESPACE,
-  PRESERVE_TRAILING_WHITESPACE,
-  NEWLINES_ONLY,
-} = require("prettier-plugin-twig-melody/src/util");
-
-const newlinesOnly = (s, preserveWhitespace = true) => {
-  const numNewlines = countNewlines(s);
-  if (numNewlines === 0) {
-    return preserveWhitespace ? softline : "";
-  } else if (numNewlines === 1) {
-    return hardline;
-  }
-  return concat([hardline, hardline]);
-};
-
-const p = (node, path, print) => {
-  // Check for special values that might have been
-  // computed during preprocessing
-  const preserveLeadingWhitespace = node[PRESERVE_LEADING_WHITESPACE] === true;
-  const preserveTrailingWhitespace =
-    node[PRESERVE_TRAILING_WHITESPACE] === true;
-
-  const rawString = path.call(print, "value");
-  if (isWhitespaceOnly(rawString) && node[NEWLINES_ONLY]) {
-    return newlinesOnly(rawString);
-  }
-
-  const textGroups = createTextGroups(
-    rawString,
-    preserveLeadingWhitespace,
-    preserveTrailingWhitespace
-  );
-
-  return join(concat([hardline, hardline]), textGroups);
-};
+  formatWithCursor,
+  doc: {
+    builders: { concat, hardline },
+  },
+} = require("prettier");
+const {
+  printTextStatement,
+} = require("prettier-plugin-twig-melody/src/print/TextStatement");
 
 function printTextStatementWithFrontMatter(node, path, print, options) {
   const literal = node.value;
@@ -55,7 +23,7 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
     // Don't use the Prettier idiom path.call(print, "value")
     // so you can fallback to the default printing of the node itself.
     // (Perhaps there's already an idiom for this as well?)
-    return p(node, path, print, options);
+    return printTextStatement(node, path, print, options);
   }
 
   // Remove the frontmatter from the current node's value
@@ -64,14 +32,16 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
 
   // The third capture group contains the YAML content.
   let rawYAML = matches[3];
-  let prettyYAML = rawYAML ? prettier.format(rawYAML, { parser: "yaml" }) : "";
+  let prettyYAML = rawYAML
+    ? formatWithCursor(rawYAML, { parser: "yaml" }).formatted
+    : "";
 
   // Format the rest of the node if it exists.
   const formattedRest = rest
     ? [
         hardline,
         rest.startsWith("\n") ? "" : hardline,
-        p(node, path, print, options),
+        printTextStatement(node, path, print, options),
       ]
     : [];
 
