@@ -1,3 +1,5 @@
+// Source: prettier-plugin-twig-melody/src/print/BlockStatement.js
+
 const prettier = require("prettier");
 const { concat, hardline, group } = prettier.doc.builders;
 const { Node } = require("melody-types");
@@ -5,7 +7,7 @@ const {
   EXPRESSION_NEEDED,
   printChildBlock,
   isWhitespaceOnly,
-} = require("prettier-plugin-twig-melody/src/util");
+} = require("prettier-plugin-twig-melody");
 
 const p = (node, path, print, options) => {
   node[EXPRESSION_NEEDED] = false;
