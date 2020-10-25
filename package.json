@@ -7,6 +7,9 @@
     "example": "example",
     "test": "tests"
   },
+  "files": [
+    "src"
+  ],
   "dependencies": {
     "melody-types": "^1.7.5"
   },
