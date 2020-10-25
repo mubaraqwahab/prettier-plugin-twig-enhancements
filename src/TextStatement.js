@@ -1,5 +1,5 @@
 const {
-  formatWithCursor,
+  format,
   doc: {
     builders: { concat, hardline },
   },
@@ -32,9 +32,7 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
 
   // The third capture group contains the YAML content.
   let rawYAML = matches[3];
-  let prettyYAML = rawYAML
-    ? formatWithCursor(rawYAML, { parser: "yaml" }).formatted
-    : "";
+  let prettyYAML = rawYAML ? format(rawYAML, { parser: "yaml" }) : "";
 
   // Format the rest of the node if it exists.
   const formattedRest = rest
