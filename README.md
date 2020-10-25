@@ -6,6 +6,15 @@ Subtle enhancements for [`prettier-plugin-twig-melody`](https://github.com/triva
 * This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
 * The enhancements of this plugin are somewhat naive and depend on implementation details of the Twig plugin v0.4.6. Thus this plugin may not work with other versions of the Twig plugin.
 
+## Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Enhancements](#enhancements)
+  - [Support for YAML frontmatter](#support-for-yaml-frontmatter)
+  - [Formatting HTML more like Prettier](#formatting-html-more-like-prettier)
+  - [Printing empty `{% block %}` statements on one line](#printing-empty--block--statements-on-one-line)
+- [Usage](#usage)
+- [Credits](#credits)
+
 ## Enhancements
 
 ### Support for YAML frontmatter
