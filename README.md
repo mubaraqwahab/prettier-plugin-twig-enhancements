@@ -1,8 +1,10 @@
 # prettier-plugin-twig-enhancements
 
-Subtle enhancements for [prettier-plugin-twig-melody](https://github.com/trivago/prettier-plugin-twig-melody).
+Subtle enhancements for [prettier-plugin-twig-melody](https://github.com/trivago/prettier-plugin-twig-melody) (v0.4.6).
 
-## Features
+**Note:** The enhancements are somewhat naive and depend on implementation details. It may stop to work when the original plugin is updated.
+
+## Enhancements
 
 ### Support for YAML frontmatter
 
@@ -34,7 +36,7 @@ items:
   - item2
 ```
 
-### Format HTML in a manner more similar to Prettier's default HTML formatter.
+### Formatting HTML more like [Prettier]()
 
 Input:
 
@@ -44,7 +46,7 @@ Input:
 </title>
 <h1>Hello, world!</h1>
 
-<p>If you're seeing this modal after clicking the button on the page, Bootstrap's CSS and JS are both working properly.</p>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit sequi modi voluptate quidem enim! Earum voluptatem accusantium nulla cupiditate exercitationem qui? Facilis explicabo veritatis iusto dignissimos laboriosam quidem ipsa sed!</p>
 
 <input type="email" name="email" id="email" class="form-control form-control--large form-control--email">
 
@@ -87,7 +89,7 @@ Output with this plugin:
 </div>
 ```
 
-### Empty `{% block %}` statements are printed on one line.
+### Printing empty `{% block %}` statements on one line
 
 Input:
 
@@ -120,4 +122,36 @@ Output with this plugin:
 
 ## Usage
 
-TODO: Explain why? Give code samples. Explain why you did how you did (i.e. why not extend the parser?)
+Install with npm. `prettier-plugin-twig-melody` v0.4.6 is a peer dependency so it should also be installed.
+
+```sh
+npm install --save-dev prettier-plugin-twig-enhancements
+```
+
+Add it to your Prettier config file (`.prettierrc`):
+
+```json
+{
+  "parser": "melody",
+  "plugins": ["."],
+  "twigMelodyPlugins": ["."]
+}
+```
+
+Example usage on Nunjucks templates (`*.njk`):
+
+```json
+{
+  "overrides": [
+    {
+      "files": "*.njk",
+      "options": {
+        "parser": "melody",
+        "plugins": [""],
+        "twigMelodyPlugins": [""],
+        "twigFollowOfficialCodingStandards": false,
+      }
+    }
+  ]
+}
+```
