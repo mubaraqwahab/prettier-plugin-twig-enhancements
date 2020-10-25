@@ -184,7 +184,7 @@ Example usage on Nunjucks templates (`*.njk`):
       "files": "*.njk",
       "options": {
         "parser": "melody",
-        "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"],
+        "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"]
       }
     }
   ]
