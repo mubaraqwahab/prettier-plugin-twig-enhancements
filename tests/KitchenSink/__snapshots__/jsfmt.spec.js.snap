@@ -1,10 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`index.njk 1`] = `
----
-layout:      layout
-title: {Hello: World}
----
 
 
 
@@ -70,11 +66,6 @@ title: {Hello: World}
 
 {% endblock %}
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
----
-layout: layout
-title: { Hello: World }
----
-
 <!-- Hey there! This file is adapted from Bootstrap's NPM starter -->
 
 <title>{{ title }} | {{ site.title }}</title>

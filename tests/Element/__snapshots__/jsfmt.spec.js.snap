@@ -8,7 +8,7 @@ exports[`block.njk 1`] = `
   {{ title }} | {{ site.title }}
 </title>
 
-<!-- These should break -->
+<!-- This should break -->
 
 <p>If you're seeing this modal after clicking the button on the page, Bootstrap's CSS and JS are both working properly.</p>
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -17,7 +17,7 @@ exports[`block.njk 1`] = `
 <h1>Hello, world!</h1>
 <title>{{ title }} | {{ site.title }}</title>
 
-<!-- These should break -->
+<!-- This should break -->
 
 <p>
   If you're seeing this modal after clicking the button on the page, Bootstrap's
