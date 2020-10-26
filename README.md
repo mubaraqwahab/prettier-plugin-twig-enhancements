@@ -2,9 +2,11 @@
 
 ![Prettier Banner](https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png)
 
-Subtle enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody).
+Subtle enhancements for Prettier Twig plugin, [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody).
 
 **Note:** This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
+
+I made this originally to format YAML frontmatter in [Nunjucks](https://mozilla.github.io/nunjucks/) templates (since Nunjucks is similar to [Twig](https://twig.symfony.com/) in syntax) and to address [this issue](https://github.com/trivago/prettier-plugin-twig-melody/issues/68). However it appears the Twig plugin isn't well compatible with Nunjucks, so I'm not using this currently.
 
 ## Table of Contents
 
@@ -146,25 +148,6 @@ Add it to your Prettier configuration file (e.g. `.prettierrc`):
 ```json
 {
   "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"]
-}
-```
-
-Example usage on [Nunjucks]() templates (`*.njk`). (**Note:** Nunjucks has a similar syntax to Twig, but the Twig plugin isn't fully compatible with it):
-
-```json
-{
-  "overrides": [
-    {
-      "files": "src/**/*.njk",
-      "options": {
-        "parser": "melody",
-        "twigPrintWidth": 120,
-        "twigSingleQuote": false,
-        "twigFollowOfficialCodingStandards": false,
-        "twigMelodyPlugins": ["node_modules/prettier-plugin-twig-enhancements"]
-      }
-    }
-  ]
 }
 ```
 
