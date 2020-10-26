@@ -27,23 +27,27 @@ function printTextStatementWithFrontMatter(node, path, print, options) {
   }
 
   // Remove the frontmatter from the current node's value
-  const rest = literal.value.slice(matches[0].length);
-  literal.value = rest.replace(/^\n+/, "\n");
+  const rest = literal.value.slice(matches[0].length).trimStart();
+  literal.value = rest;
 
   // The third capture group contains the YAML content.
-  let rawYAML = matches[3];
-  let prettyYAML = rawYAML ? format(rawYAML, { parser: "yaml" }) : "";
+  const rawYAML = matches[3];
+  const prettyYAML = rawYAML ? format(rawYAML, { parser: "yaml" }) : "";
 
   // Format the rest of the node if it exists.
   const formattedRest = rest
-    ? [
-        hardline,
-        rest.startsWith("\n") ? "" : hardline,
-        printTextStatement(node, path, print, options),
-      ]
+    ? [hardline, printTextStatement(node, path, print, options)]
     : [];
 
-  return concat(["---", hardline, prettyYAML, "---", ...formattedRest]);
+  return concat([
+    "---",
+    hardline,
+    prettyYAML,
+    "---",
+    hardline,
+    hardline,
+    ...formattedRest,
+  ]);
 }
 
 module.exports = {

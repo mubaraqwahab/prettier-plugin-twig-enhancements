@@ -1,10 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`frontmatter.njk 1`] = `
+exports[`empty-frontmatter.njk 1`] = `
 ---
-layout:      layout
-title: {Hello: World}
 ---
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+---
+
+
+
+`;
+
+exports[`frontmatter-and-content-many-spaces.njk 1`] = `
+---
+layout: base
+---
+
+
+
+
+
+<h1>Hello world</h1>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+layout: base
+---
+
+<h1>Hello world</h1>
+
+`;
+
+exports[`frontmatter-and-content-no-space.njk 1`] = `
+---
+layout: base
+---
+<h1>Hello world</h1>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+layout: base
+---
+
+<h1>Hello world</h1>
+
+`;
+
+exports[`frontmatter-and-content-one-space.njk 1`] = `
+---
+layout: base
+---
+
+<h1>Hello world</h1>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+layout: base
+---
+
+<h1>Hello world</h1>
+
+`;
+
+exports[`frontmatter-and-text-content.njk 1`] = `
+---
+layout: base
+---
+Hello world
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---
+layout: base
+---
+
+
+Hello world
+
+`;
+
+exports[`not-frontmatter.njk 1`] = `
 
 <span>Hello, world!</span>
 
@@ -13,14 +83,24 @@ title: {Hello: World}
 name:               example
 ---
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<span>Hello, world!</span>
+
+<!-- Should not be formatted as frontmatter -->
+--- name: example ---
+
+`;
+
+exports[`only-frontmatter.njk 1`] = `
+---
+layout:      layout
+title: {Hello: World}
+---
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ---
 layout: layout
 title: { Hello: World }
 ---
 
-<span>Hello, world!</span>
 
-<!-- Should not be formatted as frontmatter -->
---- name: example ---
 
 `;
