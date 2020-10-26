@@ -2,18 +2,13 @@
 
 ![Prettier Banner](https://raw.githubusercontent.com/prettier/prettier-logo/master/images/prettier-banner-light.png)
 
-Nunjucks-friendly enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody) (v0.4.6).
+Subtle enhancements for [`prettier-plugin-twig-melody`](https://github.com/trivago/prettier-plugin-twig-melody).
 
-**Notes:**
-
-- This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
-- Some enhancements of this plugin are somewhat naive and depend on implementation details of the Twig plugin v0.4.6. Thus this plugin may not work with other versions of the Twig plugin.
+**Note:** This is a plugin for `prettier-plugin-twig-melody`, not a [Prettier](https://prettier.io/) plugin.
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
 - [Enhancements](#enhancements)
-  - [Support for YAML frontmatter](#support-for-yaml-frontmatter)
   - [Formatting HTML more like Prettier](#formatting-html-more-like-prettier)
   - [Printing empty `{% block %}` statements on one line](#printing-empty--block--statements-on-one-line)
 - [Usage](#usage)
@@ -21,41 +16,7 @@ Nunjucks-friendly enhancements for [`prettier-plugin-twig-melody`](https://githu
 
 ## Enhancements
 
-### Support for YAML frontmatter
-
-Frontmatter is not used in [Twig](https://twig.symfony.com/) templates but it is in templates of [Nunjucks](https://mozilla.github.io/nunjucks/) and [Liquid](https://liquidjs.com/), both of which are similar to Twig in syntax.
-
-Input:
-
-```njk
----
-title:      Home
-map: {Hello: World}
-items:
-  - item1
-  -    item2
----
-```
-
-Output without this plugin:
-
-```njk
---- title: Home map: {Hello: World} items: - item1 - item2 ---
-```
-
-Output with this plugin:
-
-```njk
----
-title: Home
-map: { Hello: World }
-items:
-  - item1
-  - item2
----
-```
-
-### Formatting HTML more like Prettier
+### Formatting HTML more like [Prettier](https://prettier.io/)
 
 Input:
 
@@ -174,7 +135,7 @@ Output with this plugin:
 
 ## Usage
 
-Install with [npm](npmjs.com). `prettier-plugin-twig-melody` v0.4.6 is a peer dependency so it should also be installed.
+Install with [npm](npmjs.com). `prettier-plugin-twig-melody` is a peer dependency so it should also be installed.
 
 ```sh
 npm install --save-dev prettier-plugin-twig-enhancements
@@ -188,7 +149,7 @@ Add it to your Prettier configuration file (e.g. `.prettierrc`):
 }
 ```
 
-Example usage on Nunjucks templates (`*.njk`):
+Example usage on [Nunjucks]() templates (`*.njk`). (**Note:** Nunjucks has a similar syntax to Twig, but the Twig plugin isn't fully compatible with it):
 
 ```json
 {
@@ -211,4 +172,4 @@ Read more about [`prettier-plugin-twig-melody` config options](https://github.co
 
 ## Credits
 
-The test suite here is from [fvictorio/prettier-plugin-toml](https://github.com/fvictorio/prettier-plugin-toml).
+The test suites here are from [fvictorio/prettier-plugin-toml](https://github.com/fvictorio/prettier-plugin-toml).
