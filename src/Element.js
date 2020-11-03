@@ -43,12 +43,13 @@ const p = (node, path, print) => {
     node.children = removeSurroundingWhitespace(node.children);
 
     const childGroups = printChildGroups(node, path, print, "children");
-    const joinedChildren = concat(childGroups);
+    const hasChildren = childGroups.length > 0;
     const closingTag = concat(["</", node.name, ">"]);
     const result = [
       openingGroup,
-      indent(concat([softline, joinedChildren])),
-      softline,
+      // No newlines between opening and closing tag of empty elements.
+      indent(concat([hasChildren ? softline : "", concat(childGroups)])),
+      ...[hasChildren ? softline : ""],
       closingTag,
     ];
 

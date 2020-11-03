@@ -29,10 +29,25 @@ exports[`block.njk 1`] = `
 exports[`breaking-attributes.njk 1`] = `
 <input type="email" name="email" id="email" class="form-control form-control--large form-control--email">
 
+<!-- Block element -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         Success!
 </div>
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+<!-- Inline element -->
+<span class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        Success!
+</span>
+
+<!-- Empty block -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+</div>
+
+<!-- Empty inline -->
+<span class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+</span>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <input
   type="email"
   name="email"
@@ -40,6 +55,7 @@ exports[`breaking-attributes.njk 1`] = `
   class="form-control form-control--large form-control--email"
 />
 
+<!-- Block element -->
 <div
   class="modal fade"
   id="exampleModal"
@@ -50,5 +66,37 @@ exports[`breaking-attributes.njk 1`] = `
 >
   Success!
 </div>
+
+<!-- Inline element -->
+<span
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  Success!
+</span>
+
+<!-- Empty block -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+></div>
+
+<!-- Empty inline -->
+<span
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+></span>
 
 `;
