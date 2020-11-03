@@ -36,6 +36,8 @@ Input:
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             Success!
     </div>
+
+<span class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></span>
 ```
 
 Output without this plugin:
@@ -69,6 +71,15 @@ Output without this plugin:
   aria-hidden="true">
   Success!
 </div>
+
+<span class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+
+</span>
 ```
 
 Output with this plugin:
@@ -102,6 +113,15 @@ Output with this plugin:
 >
   Success!
 </div>
+
+<span
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+></span>
 ```
 
 ### Printing empty `{% block %}` statements on one line
